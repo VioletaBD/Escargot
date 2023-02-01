@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\OutingRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -17,9 +18,13 @@ class Outing
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $decsription = null;
+    private ?string $description = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\File(
+        maxSize: '1M',
+        mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+    )]
     private ?string $file = null;
 
     #[ORM\Column(length: 255)]
@@ -38,14 +43,14 @@ class Outing
         return $this->id;
     }
 
-    public function getDecsription(): ?string
+    public function getDescription(): ?string
     {
-        return $this->decsription;
+        return $this->description;
     }
 
-    public function setDecsription(string $decsription): self
+    public function setDescription(string $description): self
     {
-        $this->decsription = $decsription;
+        $this->description = $description;
 
         return $this;
     }
