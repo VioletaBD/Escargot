@@ -1,8 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+$font-body: 'Lato', sans-serif;
+$font-title: 'Montserrat', sans-serif;
+$font-size: 1.3rem;
+
 $primary: #8ce58e;
 $secondary: #e5ffec;
-$intermediate: #19da39;
-$light: #fafafa;
+$intermediate: #13ab2d;
+$light: #f0fdf1;
 $dark: #000611;
-$background: #fffef1;
+$background: #fffde1;
 
 @import "~bootstrap/scss/bootstrap";
+
+body {
+    background-repeat: no-repeat;
+    font-family: $font-body;
+    font-size: $font-size;
+    background: $background;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: $font-title;
+    margin-top: 150px;
+    margin-left: 100px;
+    color: $intermediate;
+}
+
+.navbar {
+    border-radius: 20px;
+    margin: 15px;
+    color: $intermediate;
+}
+.navbar-brand {
+    font-family: $font-title;
+    color: $intermediate;
+}
+
+// .btn {
+//     --bs-btn-border-radius: 15px;
+//     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
+// }
+
+// .btnReturn {
+//     border-radius: 10px;
+//     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
+// }
