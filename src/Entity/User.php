@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,6 +30,14 @@ class User
 
     #[ORM\Column(type: Types::ARRAY)]
     private array $roles = [];
+
+    #[ORM\ManyToMany(targetEntity: Outing::class, mappedBy: 'inscription')]
+    private Collection $inscription;
+
+    public function __construct()
+    {
+        $this->inscription = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -90,6 +100,33 @@ class User
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Outing>
+     */
+    public function getInscription(): Collection
+    {
+        return $this->inscription;
+    }
+
+    public function addInscription(Outing $inscription): self
+    {
+        if (!$this->inscription->contains($inscription)) {
+            $this->inscription->add($inscription);
+            $inscription->addInscription($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscription(Outing $inscription): self
+    {
+        if ($this->inscription->removeElement($inscription)) {
+            $inscription->removeInscription($this);
+        }
 
         return $this;
     }
