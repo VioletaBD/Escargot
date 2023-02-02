@@ -8,8 +8,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use DateTime;
+use DateTimeInterface;
 
 #[ORM\Entity(repositoryClass: OutingRepository::class)]
+#[Vich\Uploadable]
 class Outing
 {
     #[ORM\Id]
@@ -20,15 +25,22 @@ class Outing
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'string', length: 255)]
+     private string $outingName;
+     
+     #[ORM\Column(length: 255)]
     #[Assert\File(
         maxSize: '1M',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
     )]
-    private ?string $file = null;
+    #[Vich\UploadableField(mapping: 'outing_file', fileNameProperty: 'outings')]
+    private ?string $outingFile = null;
 
     #[ORM\Column(length: 255)]
     private ?string $dateTime = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?DatetimeInterface $updatedAt = null;
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'inscription')]
     private Collection $inscription;
@@ -55,15 +67,28 @@ class Outing
         return $this;
     }
 
-    public function getFile(): ?string
+    public function getOutingFile(): ?File
     {
-        return $this->file;
+        return $this->outingFile;
     }
 
-    public function setFile(string $file): self
+    public function setOutingFile(File $image = null): Outing
     {
-        $this->file = $file;
+        $this->outingFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+          }
+        return $this;
+    }
 
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 
