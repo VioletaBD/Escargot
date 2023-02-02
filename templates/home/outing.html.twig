@@ -25,16 +25,20 @@
 	</div>
 	<div class="logout mb-5 ms-5 gap-2">
 		{% if app.user %}
-			<div class="logout m-2">
-				{{ app.user.email }}
-				<a class="btn btn-outline-success" href="{{ path('app_logout') }}">
-					Se déconnecter</a>
+			<div class="col">
+				<div class="row">
+					<div class="logout m-2">
+						<h5>{{ app.user.email }}</h>
+						<a class="btn btn-outline-success" href="{{ path('app_logout') }}">
+							Se déconnecter</a>
+					</div>
+					<div class="row">
+						<div class="logout m-2">
+						{% else %}
+							<a class="btn btn-outline-success" href="{{ path('login') }}">
+								Se connecter</a>
+						</div>
+					</div>
+				{% endif %}
 			</div>
-			<div class="logout m-2">
-			{% else %}
-				<a class="btn btn-outline-success" href="{{ path('login') }}">
-					Se connecter</a>
-			</div>
-		{% endif %}
-	</div>
-{% endblock %}
+		{% endblock %}
