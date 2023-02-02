@@ -1,16 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Voici les proshaine sorties volentaries : {% endblock %}
+{% block title %}
+	Proshaine sorties volentaries :
+{% endblock %}
 
 {% block body %}
-<h2>Voici les proshaine sorties volentaries : </h2>
-{% for outing in outings %}
-    <div>
-        <h2> Proshaine sortie : {{ outing.file }}
-        {{ outing.description }}</h2>
-        <p>{{ outing.datetime }}</p>
-    </div>
-    {% else %}
-        Aucune sortie a été trouvé.
-    {% endfor %}
+	<div class="proshaineSorties">
+		<h2 class="m-5">Voici les proshaine sorties volentaries :
+		</h2>
+		{% for outing in outings %}
+			<div class="card mt-5 m-5" style="width: 18rem;">
+				<img src="{{ asset('build/images/trea.jpg') }}" class="card-img-top" alt="Photo">
+				<div class="card-body">
+					<h5 class="card-title">{{ outing.description }}</h5>
+					<p class="card-text">Je contribue à réduire les déchets d'emballages à usage unique.</p>
+					<p class="card-text">{{ outing.datetime }}</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			</div>
+		{% else %}
+			Aucune sortie a été trouvé.
+		{% endfor %}
+	</div>
 {% endblock %}
