@@ -22,7 +22,7 @@ class UserFixtures extends Fixture
         $user->setEmail('user@email.com');
         $password = $this->password->hashPassword(
             $user,
-            'titi123'
+            'toto123'
         );
         $user->setPassword($password);
         $manager->persist($user);
@@ -32,7 +32,6 @@ class UserFixtures extends Fixture
         $admin->setName('Vio');
         $admin->setLastName('BD');
         $admin->setRoles(['ROLE_ADMIN']);
-        $admin->setPassword('admin123');
         $password = $this->password->hashPassword(
             $admin,
             'admin123'
