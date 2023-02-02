@@ -6,6 +6,6 @@ vich_uploader:
 
     mappings:
         outing_file:
-            uri_prefix: /uploads/outings
-            upload_destination: '%kernel.project_dir%/public/uploads/outings'
+            uri_prefix: /uploads/outingImages
+            upload_destination: '%kernel.project_dir%/public/uploads/outingImages'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

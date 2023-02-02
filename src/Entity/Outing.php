@@ -2,16 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\OutingRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\Collection;
+use DateTime;
+use App\Entity\User;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\OutingRepository;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use DateTime;
-use DateTimeInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: OutingRepository::class)]
 #[Vich\Uploadable]
@@ -25,22 +26,22 @@ class Outing
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type: 'string', length: 255)]
-     private string $outingName;
+    #[Assert\Length(max: 255)]
+    #[ORM\Column(nullable: true)]
+    private string $outingName;
      
-     #[ORM\Column(length: 255)]
     #[Assert\File(
         maxSize: '1M',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
     )]
-    #[Vich\UploadableField(mapping: 'outing_file', fileNameProperty: 'outings')]
-    private ?string $outingFile = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $dateTime = null;
+    #[Vich\UploadableField(mapping: 'outing_file', fileNameProperty: 'outingName')]
+    private ?File $outingFile = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?DatetimeInterface $updatedAt = null;
+    
+    #[ORM\Column(length: 255)]
+    private ?string $dateTime = null;
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'inscription')]
     private Collection $inscription;

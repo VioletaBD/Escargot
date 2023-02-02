@@ -20,12 +20,12 @@ final class Version20230202112442 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE outing ADD outing_file VARCHAR(255) NOT NULL, ADD updated_at DATETIME DEFAULT NULL, CHANGE file outing_name VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE outing ADD outing_name VARCHAR(255) DEFAULT NULL, ADD updated_at DATETIME NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE outing ADD file VARCHAR(255) NOT NULL, DROP outing_name, DROP outing_file, DROP updated_at');
+        $this->addSql('ALTER TABLE outing DROP outing_name, DROP updated_at');
     }
 }

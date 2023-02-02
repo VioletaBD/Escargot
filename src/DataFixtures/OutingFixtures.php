@@ -2,18 +2,34 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Outing;
 use Faker\Factory;
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\Entity\Outing;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\Filesystem\Filesystem;
 
 class OutingFixtures extends Fixture
 {
+    private Filesystem $filesystem;
+
+    public function __construct(Filesystem $filesystem)
+    {
+        $this->filesystem = $filesystem;
+    }
+    
     public function load(ObjectManager $manager): void
     {
+        $this->filesystem->remove(__DIR__ . '/../../public/uploads/outingImages/');
+        $this->filesystem->mkdir(__DIR__ . '/../../public/uploads/outingImages/');
+
+        copy(
+            './src/DataFixtures/outingImages/action.jpg',
+            __DIR__ . '/../../public/uploads/outingImages/action.jpg'
+        );
+
         $outing = new Outing();
         $outing->setDescription('C\'est un voluntery sortie');
-        $outing->setFile('eco.php');
+        $outing->setOutingName('action.jpg');
         $outing->setDateTime('now');
         $manager->persist($outing);
         $manager->flush();
