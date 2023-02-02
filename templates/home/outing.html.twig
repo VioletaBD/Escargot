@@ -8,6 +8,7 @@
 	<div class="proshaineSorties">
 		<h2 class="m-5">Voici les proshaine sorties volentaries :
 		</h2>
+
 		{% for outing in outings %}
 			<div class="card mt-5 m-5" style="width: 18rem;">
 				<img src="{{ asset('build/images/trea.jpg') }}" class="card-img-top" alt="Photo">
@@ -15,11 +16,29 @@
 					<h5 class="card-title">{{ outing.description }}</h5>
 					<p class="card-text">Je contribue à réduire les déchets d'emballages à usage unique.</p>
 					<p class="card-text">{{ outing.datetime }}</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
+					<a href="#" class="btn btn-primary">Inscrire</a>
 				</div>
 			</div>
 		{% else %}
 			Aucune sortie a été trouvé.
 		{% endfor %}
 	</div>
-{% endblock %}
+	<div class="logout mb-5 ms-5 gap-2">
+		{% if app.user %}
+			<div class="col">
+				<div class="row">
+					<div class="logout m-2">
+						<h5>{{ app.user.email }}</h>
+						<a class="btn btn-outline-success" href="{{ path('app_logout') }}">
+							Se déconnecter</a>
+					</div>
+					<div class="row">
+						<div class="logout m-2">
+						{% else %}
+							<a class="btn btn-outline-success" href="{{ path('login') }}">
+								Se connecter</a>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		{% endblock %}
