@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Voici les proshaine sorties volentaries : {% endblock %}
+
+{% block body %}
+<h2>Voici les proshaine sorties volentaries : </h2>
+{% for outing in outings %}
+    <div>
+        <h2> Proshaine sortie : {{ outing.file }}
+        {{ outing.description }}</h2>
+        <p>{{ outing.datetime }}</p>
+    </div>
+    {% else %}
+        Aucune sortie a été trouvé.
+    {% endfor %}
+{% endblock %}
