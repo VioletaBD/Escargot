@@ -2,14 +2,20 @@
 
 namespace App\Entity;
 
-use App\Repository\OutingRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\Collection;
+use DateTime;
+use App\Entity\User;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\OutingRepository;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: OutingRepository::class)]
+#[Vich\Uploadable]
 class Outing
 {
     #[ORM\Id]
@@ -20,13 +26,20 @@ class Outing
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[Assert\Length(max: 255)]
+    #[ORM\Column(nullable: true)]
+    private ?string $outingName = null;
+     
     #[Assert\File(
         maxSize: '1M',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
     )]
-    private ?string $file = null;
+    #[Vich\UploadableField(mapping: 'outing_file', fileNameProperty: 'outingName')]
+    private ?File $outingFile = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?DatetimeInterface $updatedAt = null;
+    
     #[ORM\Column(length: 255)]
     private ?string $dateTime = null;
 
@@ -36,6 +49,7 @@ class Outing
     public function __construct()
     {
         $this->inscription = new ArrayCollection();
+        $this->updatedAt = new DateTime();
     }
 
     public function getId(): ?int
@@ -55,15 +69,37 @@ class Outing
         return $this;
     }
 
-    public function getFile(): ?string
+    public function getOutingFile(): ?File
     {
-        return $this->file;
+        return $this->outingFile;
     }
 
-    public function setFile(string $file): self
+    public function setOutingFile(File $outingFile = null): void
     {
-        $this->file = $file;
+        $this->outingFile = $outingFile;
+        if ($outingFile) {
+            $this->updatedAt = new DateTime('now');
+          }
+    }
 
+    public function getOutingName(): ?string
+    {
+        return $this->outingName;
+    }
+
+    public function setOutingName(?string $outingName): void
+    {
+        $this->outingName = $outingName;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 
