@@ -24,18 +24,26 @@ body {
 
 .title {
     font-family: $font-title;
-
+    margin: 15px;
     color: $intermediate;
 }
 
 .navbar {
     border-radius: 20px;
-    margin: 15px;
     color: $intermediate;
 }
+
 .navbar-brand {
     font-family: $font-title;
     color: $intermediate;
+}
+
+.carousel {
+    margin-top: 200px;
+}
+
+.proshaineSorties {
+    margin-top: 200px;
 }
 
 // .btn {
