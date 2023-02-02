@@ -72,13 +72,22 @@ class Outing
         return $this->outingFile;
     }
 
-    public function setOutingFile(File $image = null): Outing
+    public function setOutingFile(File $outingFile = null): void
     {
-        $this->outingFile = $image;
-        if ($image) {
+        $this->outingFile = $outingFile;
+        if ($outingFile) {
             $this->updatedAt = new DateTime('now');
           }
-        return $this;
+    }
+
+    public function getoutingName(): ?string
+    {
+        return $this->outingName;
+    }
+
+    public function setOutingName(?string $outingName): void
+    {
+        $this->outingName = $outingName;
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface
