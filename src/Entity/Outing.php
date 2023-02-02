@@ -28,7 +28,7 @@ class Outing
 
     #[Assert\Length(max: 255)]
     #[ORM\Column(nullable: true)]
-    private string $outingName;
+    private ?string $outingName = null;
      
     #[Assert\File(
         maxSize: '1M',
@@ -49,6 +49,7 @@ class Outing
     public function __construct()
     {
         $this->inscription = new ArrayCollection();
+        $this->updatedAt = new DateTime();
     }
 
     public function getId(): ?int
@@ -81,7 +82,7 @@ class Outing
           }
     }
 
-    public function getoutingName(): ?string
+    public function getOutingName(): ?string
     {
         return $this->outingName;
     }
