@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Outing{% endblock %}
+{% block title %}New Outing
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Outing</h1>
+	<div class="adminOuting">
+		<h1>Create new Outing</h1>
 
-    {{ include('admin_action/_form.html.twig') }}
+		{{ include('admin_action/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_action_index') }}">back to list</a>
+		<a href="{{ path('app_admin_action_index') }}">back to list</a>
+	</div>
 {% endblock %}
