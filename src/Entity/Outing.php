@@ -79,7 +79,7 @@ class Outing
         $this->outingFile = $outingFile;
         if ($outingFile) {
             $this->updatedAt = new DateTime('now');
-          }
+          }      
     }
 
     public function getOutingName(): ?string

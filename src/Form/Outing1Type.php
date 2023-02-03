@@ -8,7 +8,6 @@ use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class Outing1Type extends AbstractType
 {
@@ -24,17 +23,8 @@ class Outing1Type extends AbstractType
             ->add('description', TextType::class, [
                 'label' => 'Description'
             ])
-
-            ->add('dateTime', null, [
-                'label' => 'timedate'
-            ])
             ->add('inscription', null, )
-
-
-
-            ->add('dateTime', DateTimeType::class, [
-                'dateTime' => 'Date'
-            ]);;
+            ;;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

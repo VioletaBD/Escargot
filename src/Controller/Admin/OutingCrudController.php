@@ -3,6 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Outing;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class OutingCrudController extends AbstractCrudController
@@ -11,15 +14,15 @@ class OutingCrudController extends AbstractCrudController
     {
         return Outing::class;
     }
-
-    /*
-    public function configureFields(string $pageName): iterable
+    
+    public function configureFields(string $outionName): iterable
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        yield ImageField::new('outingFile')
+            ->setBasePath('uploads/outingImages')
+            ->setUploadDir('public/images/build');
+        yield DateField::new('createdAt')
+            ->hideOnForm();
+        yield TextEditorField::new('description');
+        // yield DateField::new('date');
     }
-    */
 }
