@@ -4,12 +4,12 @@ $font-body: 'Lato', sans-serif;
 $font-title: 'Montserrat', sans-serif;
 $font-size: 1.3rem;
 
-$primary: #8ce58e;
+$primary: #b0ecb1;
 $secondary: #e5ffec;
-$intermediate: #13ab2d;
-$light: #f0fdf1;
-$dark: #000611;
-$background: #fffde1;
+$intermediate: #31833f;
+$light: #f9fff9;
+$dark: #002c19;
+$background: #fffbbe;
 
 @import "~bootstrap/scss/bootstrap";
 
@@ -51,18 +51,31 @@ body {
     margin-top: 300px;
 }
 
-.registrationForm {
-    margin: 200px;
-    margin-top: 300px;
-}
-
 .login {
-    margin-top: 300px;
+    margin-top: 50px;
 }
 
-.logout {
-    display: flex;
-    justify-content: end;
+.titleLogin {
+    margin-top: 200px;
+}
+
+.registrationForm {
+    margin-top: 200px;
+}
+
+.registration-form {
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
+    color: $secondary;
+    padding: auto;
+}
+
+.mail-registration {
+    color: $primary;
+}
+
+.registration-input {
+    border-radius: 10px;
 }
 
 // .btn {
