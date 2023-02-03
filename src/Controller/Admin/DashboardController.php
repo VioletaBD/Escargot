@@ -49,7 +49,6 @@ class DashboardController extends AbstractDashboardController implements Dashboa
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-Dashboard');
         yield MenuItem::linkToCrud('Outings', 'fa fa-une Proshaine action', Outing::class);
         yield MenuItem::linkToCrud('User', 'fa fa-Users', User::class);
-        yield MenuItem::linkToCrud('Image', 'fa fa-Photo pour une proshain action', File::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
