@@ -25,7 +25,7 @@
 						<td>{{ outing.description }}</td>
 						<td>{{ outing.outingName }}</td>
 						<td>{{ outing.updatedAt ? outing.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-						<td>{{ outing.dateTime }}</td>
+
 						<td>
 							<a href="{{ path('app_admin_action_show', {'id': outing.id}) }}">show</a>
 							<a href="{{ path('app_admin_action_edit', {'id': outing.id}) }}">edit</a>

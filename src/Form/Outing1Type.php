@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use DateTime;
 use App\Entity\Outing;
 use Symfony\Component\Form\AbstractType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
@@ -23,7 +24,6 @@ class Outing1Type extends AbstractType
             ->add('description', TextType::class, [
                 'label' => 'Description'
             ])
-            ->add('inscription', null, )
             ;;
     }
 

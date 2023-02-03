@@ -29,7 +29,7 @@ class Outing
     #[Assert\Length(max: 255)]
     #[ORM\Column(nullable: true)]
     private ?string $outingName = null;
-     
+
     #[Assert\File(
         maxSize: '1M',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
@@ -39,9 +39,6 @@ class Outing
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?DatetimeInterface $updatedAt = null;
-    
-    #[ORM\Column(length: 255)]
-    private ?string $dateTime = null;
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'inscription')]
     private Collection $inscription;
@@ -79,7 +76,7 @@ class Outing
         $this->outingFile = $outingFile;
         if ($outingFile) {
             $this->updatedAt = new DateTime('now');
-          }      
+        }
     }
 
     public function getOutingName(): ?string
@@ -102,19 +99,7 @@ class Outing
         $this->updatedAt = $updatedAt;
         return $this;
     }
-
-    public function getDateTime(): ?string
-    {
-        return $this->dateTime;
-    }
-
-    public function setDateTime(string $dateTime): self
-    {
-        $this->dateTime = $dateTime;
-
-        return $this;
-    }
-
+    
     /**
      * @return Collection<int, User>
      */

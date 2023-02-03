@@ -30,7 +30,6 @@ class OutingFixtures extends Fixture
         $outing = new Outing();
         $outing->setDescription('C\'est un voluntery sortie');
         $outing->setOutingName('action.jpg');
-        $outing->setDateTime('now');
         $manager->persist($outing);
         $manager->flush();
     }
