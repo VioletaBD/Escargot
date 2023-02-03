@@ -13,10 +13,10 @@
 				<h3 class="title">De petits mouvements peuvent avoir de grands impacts !</h3>
 			</div>
 		</div>
-		<div class="logout mb-5 ms-5 gap-2">
+		<div class="logout mb-5">
 			<a class="navbar gap-3" href="{{ path('app_login')}}">
 				{% if app.user %}
-					<div class="logout m-2">
+					<div class="logout">
 						<h5>{{ app.user.email }}</h>
 						<a class="btn btn-outline-success" href="{{ path('app_logout') }}">
 							Se déconnecter</a>
