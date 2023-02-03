@@ -2,7 +2,7 @@
 
 $font-body: 'Lato', sans-serif;
 $font-title: 'Montserrat', sans-serif;
-$font-size: 1.3rem;
+$font-size: 1rem;
 
 $primary: #b0ecb1;
 $secondary: #e5ffec;
@@ -24,18 +24,19 @@ body {
 
 .title {
     font-family: $font-title;
-    margin: 15px;
+    margin: 5px;
     color: $intermediate;
 }
 
 .navbar {
-    border-radius: 20px;
     color: $intermediate;
 }
 
 .navbar-brand {
     font-family: $font-title;
     color: $intermediate;
+    display: flex;
+    justify-content: start;
 }
 
 .carousel {
@@ -44,6 +45,7 @@ body {
 
 .proshaineSorties {
     margin-top: 200px;
+    gap: 20px;
 }
 
 .adminOuting {
