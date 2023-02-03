@@ -24,8 +24,12 @@ body {
 
 .title {
     font-family: $font-title;
-    margin: 5px;
     color: $intermediate;
+}
+
+.carouselAutoplaying {
+    width: 80%;
+    height: 80%;
 }
 
 .navbar {
@@ -44,7 +48,6 @@ body {
 }
 
 .proshaineSorties {
-  
     gap: 20px;
 }
 
