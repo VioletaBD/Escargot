@@ -2,14 +2,14 @@
 
 $font-body: 'Lato', sans-serif;
 $font-title: 'Montserrat', sans-serif;
-$font-size: 1.5rem;
+$font-size: 1.8rem;
 
-$primary: #5c4b8f ;
-$secondary: #e8ffee;
-$intermediate: #1d842e;
-$light: #eaeefe;
+$primary: #65539b ;
+$secondary: #229b36;
+$intermediate: #e8ffee;
+$light: #f1fafc;
 $dark: #002c19;
-$background: #f7f2ff;
+$background: #f4f4fd;
 
 @import "~bootstrap/scss/bootstrap";
 
@@ -33,6 +33,7 @@ body {
 }
 
 .navbar {
+    background-color: $secondary;
     color: $intermediate;
 }
 
