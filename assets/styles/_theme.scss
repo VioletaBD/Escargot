@@ -2,14 +2,14 @@
 
 $font-body: 'Lato', sans-serif;
 $font-title: 'Montserrat', sans-serif;
-$font-size: 1rem;
+$font-size: 1.5rem;
 
-$primary: #a3faa4;
-$secondary: #e5ffec;
+$primary: #5c4b8f ;
+$secondary: #e8ffee;
 $intermediate: #1d842e;
-$light: #f9fff9;
+$light: #eaeefe;
 $dark: #002c19;
-$background: #fffbbe;
+$background: #f7f2ff;
 
 @import "~bootstrap/scss/bootstrap";
 
@@ -38,7 +38,6 @@ body {
 
 .navbar-brand {
     font-family: $font-title;
-    color: $intermediate;
     display: flex;
     justify-content: start;
 }
