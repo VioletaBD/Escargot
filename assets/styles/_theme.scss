@@ -2,14 +2,14 @@
 
 $font-body: 'Lato', sans-serif;
 $font-title: 'Montserrat', sans-serif;
-$font-size: 1rem;
+$font-size: 1.8rem;
 
-$primary: #a3faa4;
-$secondary: #e5ffec;
-$intermediate: #1d842e;
-$light: #f9fff9;
+$primary: #6d5d9e ;
+$secondary: #31a745;
+$intermediate: #e8ffee;
+$light: #f1fafc;
 $dark: #002c19;
-$background: #fffbbe;
+$background: #f4f4fd;
 
 @import "~bootstrap/scss/bootstrap";
 
@@ -24,68 +24,36 @@ body {
 
 .title {
     font-family: $font-title;
-    margin: 5px;
     color: $intermediate;
 }
 
 .navbar {
+    background-color: $secondary;
     color: $intermediate;
 }
 
 .navbar-brand {
     font-family: $font-title;
-    color: $intermediate;
     display: flex;
     justify-content: start;
 }
 
-.carousel {
-    margin-top: 200px;
+.action-card {
+    width: 420px;
+    height: 600px;
+    box-shadow: inset var(--box-shadow-card);
+    border: none;
+    border-radius: var(--border-radius-card);
 }
 
-.proshaineSorties {
-  
-    gap: 20px;
+.card-img-top {
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+    border: radius 5px;;
+
 }
 
-.adminOuting {
-    margin: 200px;
-    margin-top: 300px;
+.action-card .card-title {
+    height: 6rem;
 }
-
-.login {
-    margin-top: 50px;
-}
-
-.titleLogin {
-    margin-top: 200px;
-}
-
-.registrationForm {
-    margin-top: 200px;
-}
-
-.registration-form {
-    border-radius: 30px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
-    color: $secondary;
-    padding: auto;
-}
-
-.mail-registration {
-    color: $primary;
-}
-
-.registration-input {
-    border-radius: 10px;
-}
-
-// .btn {
-//     --bs-btn-border-radius: 15px;
-//     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
-// }
-
-// .btnReturn {
-//     border-radius: 10px;
-//     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
-// }

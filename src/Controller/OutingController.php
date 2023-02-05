@@ -9,22 +9,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class OutingController extends AbstractController
 {
-    #[Route('/sortie', name: 'app_outing')]
+    #[Route('/', name: 'app_index')]
     public function index(int $id, OutingRepository $outingRepository): Response
     {
         $outings = $outingRepository->find($id);
         return $this->render(
-            'home/outing.html.twig',
+            'home/index.html.twig',
             ['outings' => $outings]
         );
     }
 
-    #[Route('/sortie', name: 'app_outing')]
+    #[Route('/', name: 'app_index')]
     public function show(OutingRepository $outingRepository): Response
     {
         $outings = $outingRepository->findAll();
         return $this->render(
-            'home/outing.html.twig',
+            'home/index.html.twig',
             ['outings' => $outings]
         );
     }
