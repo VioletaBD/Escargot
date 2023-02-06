@@ -20,14 +20,14 @@
 						<div class="col">
 							<div class="row">
 								<div class="logout">
-									<a class="btn btn-outline-success p-2 text-light" href="{{ path('app_login') }}">
-										Connectez-vous</a>
+									<a class="btn btn-outline-success p-2 text-light" href="{{ path('app_logout') }}">
+										Se deconnecter</a>
 								</div>
 								<div class="row">
 									<div class="logout">
 									{% else %}
-										<a class="btn btn-outline-success p-2 text-light me-2" href="{{ path('app_logout') }}">
-											Se deconnecter</a>
+										<a class="btn btn-outline-success p-2 text-light me-2" href="{{ path('app_login') }}">
+											Connectez-vous</a>
 									</div>
 								</div>
 							</div>

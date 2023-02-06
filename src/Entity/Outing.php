@@ -40,7 +40,8 @@ class Outing
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?DatetimeInterface $updatedAt = null;
 
-    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'inscription')]
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'eventement')]
+    #[ORM\JoinTable(name:'inscription')]
     private Collection $inscription;
 
     public function __construct()
