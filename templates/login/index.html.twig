@@ -39,9 +39,6 @@
 							<input type="password" class="form-control" id="password" name="_password">
 						</div>
 						<div class="my-3 col-10 m-auto">
-							<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-							<input type="hidden" name="_target_path" value="{{ path('admin') }}">
-							<input type="hidden" name="_target_path" value="{{ path('app_admin_action_index') }}">
 							<button type="submit" class="btn btn-outline-primary w- m-auto mb-5 mt-4 fw-bold fs-5">Valider</button>
 						</div>
 					</form>
