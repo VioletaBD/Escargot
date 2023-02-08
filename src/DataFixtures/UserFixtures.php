@@ -20,6 +20,7 @@ class UserFixtures extends Fixture
         $user->setName('Simon');
         $user->setLastName('Toto');
         $user->setEmail('user@email.com');
+        $user->setRoles(['ROLE_USER']);
         $password = $this->password->hashPassword(
             $user,
             'toto123'
