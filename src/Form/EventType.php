@@ -5,14 +5,18 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Mime\Message;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class InscriptionType extends AbstractType
+class EventType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('name')
+            ->add('lastname')
+            ->add('email')
+            ->add('password')
+            ->add('roles')
             ->add('inscription')
         ;
     }
