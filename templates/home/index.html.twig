@@ -15,11 +15,11 @@
 		<div class="card-body text-center text-light p-2 bg-primary rounded-5 col-lg-6" style="max-width: 1000px;">
 			<h4 class="card-title text-center p-3">L'association d'escargot en action réalisez une mission de bénévolat Ramassage de déchets</h4>
 			<p class="card-text p-2">Chaque année, des centaines de tonnes de déchets se retrouvent dans la nature, volontairement ou involontairement.
-																																																																																																																				Ils ont un impact sans pareil sur la faune et sur la flore : fragmentation du plastique sous forme de microplastiques, blessures d’animaux,
-																																																																																																													   					        pollution des sols… Même s’il convient de lutter contre la génération de déchets à la source, en modifiant ses comportements individuels pour 
-																																																																																																																	        	privilégier par exemple des achats avec le moins d’emballages possibles, il est important à court terme de limiter la pollution durable des milieux. 
-																																																																																																																				Au-delà de l’effet bénéfique immédiat, la collecte de déchets est un excellent moyen pédagogique et convivial pour encourager à la prise de 
-																																																																																																																				conscience et en apprendre plus sur le contenu de nos poubelles.</p>
+									Ils ont un impact sans pareil sur la faune et sur la flore : fragmentation du plastique sous forme de microplastiques, blessures d’animaux,
+							        pollution des sols… Même s’il convient de lutter contre la génération de déchets à la source, en modifiant ses comportements individuels pour 
+						        	privilégier par exemple des achats avec le moins d’emballages possibles, il est important à court terme de limiter la pollution durable des milieux. 
+									Au-delà de l’effet bénéfique immédiat, la collecte de déchets est un excellent moyen pédagogique et convivial pour encourager à la prise de 
+									conscience et en apprendre plus sur le contenu de nos poubelles.</p>
 		</div>
 	</div>
 
@@ -27,15 +27,13 @@
 		<div class="card-body text-center border border-3 border border-primary rounded-5 col-lg-6" style="max-width: 1000px;">
 			<h4 class="card-title text-center p-3">Réalisez une mission de bénévolat Ramassage de déchets</h4>
 			<p class="card-text p-2">Chaque année, des centaines de tonnes de déchets se retrouvent dans la nature, volontairement ou involontairement.
-																																																																																																								Ils ont un impact sans pareil sur la faune et sur la flore : fragmentation du plastique sous forme de microplastiques, blessures d’animaux, pollution des sols… 
-																																																																																																								Même s’il convient de lutter contre la génération de déchets à la source, en modifiant ses comportements individuels pour privilégier par exemple 
-																																																																																																								des achats avec le moins d’emballages possibles, il est important à court terme de limiter la pollution durable des milieux.																		
-																																																																																																								Au-delà de l’effet bénéfique immédiat, la collecte de déchets est un excellent moyen pédagogique et convivial pour encourager à la prise de conscience 												
-																																																																																																								et en apprendre plus sur le contenu de nos poubelles.</p>
+									Ils ont un impact sans pareil sur la faune et sur la flore : fragmentation du plastique sous forme de microplastiques, blessures d’animaux, pollution des sols… 
+	 								Même s’il convient de lutter contre la génération de déchets à la source, en modifiant ses comportements individuels pour privilégier par exemple 
+									des achats avec le moins d’emballages possibles, il est important à court terme de limiter la pollution durable des milieux.																		
+									Au-delà de l’effet bénéfique immédiat, la collecte de déchets est un excellent moyen pédagogique et convivial pour encourager à la prise de conscience 												
+									et en apprendre plus sur le contenu de nos poubelles.</p>
 		</div>
 	</div>
-
-
 	<div class="row row-cols-1 row-cols-md-3 mx-1">
 		<div class="col">
 			<div class="action-card rounded-5 border border-secondary card mx-auto my-2 my-lg-3">
@@ -54,7 +52,6 @@
 							</p>
 							<p class="action-card-description card-text blockquote-footer pt-3"></p>
 						</div>
-
 						<div class="inscription m-2">
 							{% if app.user %}
 								<div class="inscription">
@@ -71,162 +68,9 @@
 								</div>
 							{% endif %}
 						</div>
-					{% else %}
-						Aucune sortie a été trouvé.
-					{% endfor %}
-				</div>
+					</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
-
-
-	{# <a class="btn btn-outline-success mb-4" href="{{ path('app_index', { user: user.id, outing: outing.id })}}">
-																																																								Inscrire vous dans le sortie</a>
-																																				</div>
-																																			</div>
-																																		</div>
-																																	</div>
-																																	<div class="col">
-																																		<div class="action-card  rounded-5 border border-secondary card mx-auto my-2 my-lg-3">
-																																			<img src="{{ asset('build/images/trea.jpg') }}" class="rounded-top card-img-top " alt="image les deshetes">
-																																			<div class="d-flex flex-column justify-content-between h-100">
-																																				<div class="p-3">
-																																					<h5 class="card-title d-flex pt-4">
-																																						Title
-																																					</h5>
-																																					<p class="card-text">Trouvez une mission de bénévolat Ramassage de déchets parmi les missions actuellement disponibles et faites vivre l'engagement de chacun pour tous :<b>
-																																							30/05/2023
-																																						</b>
-																																					</p>
-																																					<p class="action-card-description card-text blockquote-footer pt-3"></p>
-																																				</div>
-																																				<div> #}
-{# <div class="inscription">
-																																					{% if app.user %}
-																																						<div class="col">
-																																							<div class="row">
-																																								<div class="inscription">
-																																									<a class="btn btn-outline-primary p-2" href="{{ path('app_login') }}">
-																																										Participatez dans l'evenement</a>
-																																								</div>
-																																								<div class="row">
-																																									<div class="inscription">
-																																									{% else %}
-																																										<a class="btn btn-outline-primary p-2 mb-2" href="{{ path('app_login') }}">
-																																											Connectez vous pour participate</a>
-																									</div>
-																																								</div>
-																																							</div>
-																	</div>
-																																					{% endif %}
-										</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="div">
-		<div class="action-card rounded-5 border border-secondary card mx-auto my-2 my-lg-3">
-			<img src="{{ asset('build/images/snail.jpeg') }}" class="card-img-top rounded-top" alt="image concernant les deshetes">
-			<div class="d-flex flex-column justify-content-between h-100">
-				<div class="p-3">
-					<h5 class="card-title d-flex pt-4">
-						Title
-					</h5>
-					<p class="card-text">Trouvez une mission de bénévolat Ramassage de déchets parmi les missions actuellement disponibles et faites vivre l'engagement de chacun pour tous :<b>
-							30/05/2023
-						</b>
-					</p>
-					<p class="action-card-description card-text blockquote-footer pt-3"></p>
-				</div>
-				<div>{# <a class="btn btn-outline-success mb-4" href="{{ path('app_login') }}">
-																																											Participatez dans l'evenement</a> #}
-	{# <div class="inscription ">
-																																						{% if app.user %}
-																																							<div class="col">
-																																								<div class="row">
-																																									<div class="inscription">
-																																										<a class="btn btn-outline-primary p-2" href="{{ path('app_login') }}">
-																																											Participatez dans l'evenement</a>
-																																									</div>
-																																									<div class="row">
-																																										<div class="inscription">
-																																										{% else %}
-																																											<a class="btn btn-outline-primary p-2 mb-2" href="{{ path('app_login') }}">
-																																												Connectez vous pour participate</a>
-																																										</div>
-																																									</div>
-																																								</div>
-																																							</div>
-																																						{% endif %}
-																																					</div> #}
-</div></div></div></div>{% endblock %}{# <div class="card mb-3 mx-5" style="max-width: 1000px;">
-										
-										
-										
-										
-										Le {{ actuality.date|date("d-m-y") | nl2br }},
-																	<div
-																		class="row g-0">
-																		{# <div class="col-md-4">
-																										<img src="{{ asset('build/images/differentSortOf.jpg') }}" class="img-fluid rounded-start" alt="Action in nature">
-																									</div> #}{# <div class="col-md-8">
-																			<div class="card-body">
-																				<h5 class="card-title">Réalisez une mission de bénévolat Ramassage de déchets</h5>
-																				<p class="card-text"></p>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-																<div class="InfoToInscption mt-5 m-5">
-																	<div class="card">
-																		<h6 class="card-header">Collecte de déchets pédestre sur la plage, collecte de déchets en canoë sur un fleuve, collecte de déchets en montagne…</h6>
-																		<div class="card-body">
-																			<h5 class="card-title mb-3 mt-1">Réalisez une mission de bénévolat Ramassage de déchets</h5>
-																			<p class="card-text"></p>
-																			<p class="card-text fs-5">Trouvez une mission de bénévolat Ramassage de déchets parmi les missions actuellement disponibles et faites vivre l'engagement de chacun pour tous :</p>
-																			<a href="{{ path('app_login')}}" class="btn btn-primary">Connecter pour voir et participate dans les sorties</a>
-																		</div>
-																	</div>
-																</div>
-														
-																<div class="proshaineSorties">
-																	<h2 class="m-5">Voici les proshaine sorties volentaries :
-																	</h2>
-																	<div class="row row-cols-1 row-cols-md-2 g-4">
-																		<div class="col mx-auto ">
-																			<div class="card gap-2 mb-5">
-																				{% for outing in outings %}
-																					<img src="{{ asset('build/images/trea.jpg') }}" class="card-img-top" alt="Photo">
-																					<div class="card-body">
-																						<h5 class="card-title">{{ outing.description }}</h5>
-																						<p class="card-text">Je contribue à réduire les déchets d'emballages à usage unique.</p>
-																						<a href="{{ path('app_inscription')}}" class="btn btn-primary">Inscrire</a>
-																					</div>
-																				{% else %}
-																					Aucune sortie a été trouvé.
-																				{% endfor %}
-																			</div>
-																		</div>
-																	</div>
-																</div>
-																<div class="inscription mb-5 ms-5 gap-2">
-																	{% if app.user %}
-																		<div class="col">
-																			<div class="row">
-																				<div class="logout m-2">
-																					<h6>{{ app.user.email }}</h6>
-																					<a class="btn btn-outline-success" href="{{ path('app_logout') }}">
-																						Se déconnecter</a>
-																				</div>
-																				<div class="row">
-																					<div class="logout m-2">
-																					{% else %}
-																						<a class="btn btn-outline-success" href="{{ path('app_login') }}">
-																							Se connecter</a>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	{% endif %}
-																</div>
-															</div> #}
+{% endblock %}

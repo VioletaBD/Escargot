@@ -14,11 +14,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class InscriptionController extends AbstractController
 {
     #[Route('/evenement/show/{id}', name: 'app_evenement', methods: ['GET', 'POST'])]
-    public function evenement(Outing $outing, OutingRepository $outingRepository):Response
+    public function evenement(Outing $outing, OutingRepository $outingRepository): Response
     {
-        $outing->addInscription($this->getUser());
+        // dd($this->getUser());
+        $outing->addInscription($this->getUser('inscription'));
         $outingRepository->save($outing, true);
-        return $this->render('home/index.html.twig');
+        return $this->render('home/index.html.twig', [
+            'outings' => $outing
+        ]);
     }
     //     Request $request,
     //     User $user,
