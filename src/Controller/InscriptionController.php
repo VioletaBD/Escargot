@@ -2,34 +2,45 @@
 
 namespace App\Controller;
 
-use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use App\Entity\Outing;
+use App\Repository\UserRepository;
+use App\Repository\OutingRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class InscriptionController extends AbstractController
 {
-    // #[Route('/inscription', name: 'app_inscription')]
-    // public function index(AuthenticationUtils $authenticationUtils): Response
-    // {
-    //     // get the inscription error if there is one
-    //     $error = $authenticationUtils->getLastAuthenticationError();
-    //     // last username entered by the user
-    //     $lastUsername = $authenticationUtils->getLastUsername();
-    //     return $this->render(
-    //         'inscription/inscription.html.twig',
-    //         [
-    //             'last_username' => $lastUsername,
-    //             'error'         => $error,
-    //         ]
-    //     );
-    // }
+    #[Route('/evenement/show/{id}', name: 'app_evenement', methods: ['GET', 'POST'])]
+    public function evenement(Outing $outing, OutingRepository $outingRepository): Response
+    {
+        // dd($this->getUser());
+        $outing->addInscription($this->getUser('inscription'));
+        $outingRepository->save($outing, true);
+        return $this->render('home/index.html.twig', [
+            'outings' => $outing
+        ]);
+    }
+    //     Request $request,
+    //     User $user,
+    //     UserRepository $userRepository,
+    //     Outing $outing
+    // ): Response {
+    //     $form = $this->createForm(InscriptionType::class);
+    //     $form->handleRequest($request);
+    //     /** @var User */
+    //     $user = $this->getUser('inscription');
 
-    // #[Route('/deconnexion', name: 'app_logout', methods: ['GET'])]
-    // public function logout(): void
-    // {
-    //     // controller can be blank: it will never be called!
-    //     throw new Exception('Don\'t forget to activate logout in security.yaml');
-    // }
+    //     if ($form->isSubmitted() && $form->isValid()) {
+
+    //         $userRepository->save($user, true);
+    //         $this->addFlash('success', 'Vous vous êtes ajouté avec succès comme participant à cet événement.');
+    //         return $this->redirectToRoute('app_index', [], Response::HTTP_SEE_OTHER);
+    //     }
+    //     return $this->renderForm('index/event_form.html.twig', [
+    //         'user' => $user,
+    //         'form' => $form,
+    //     ]);
 }

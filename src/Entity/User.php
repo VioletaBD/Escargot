@@ -46,7 +46,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::ARRAY)]
     private array $roles = [];
 
-    #[ORM\ManyToMany(targetEntity: Outing::class, mappedBy: 'inscription')]
+    #[ORM\ManyToMany(targetEntity: Outing::class, mappedBy: 'inscrits')]
+    #[ORM\JoinTable(name:'inscription')]
     private Collection $inscription;
 
     public function __construct()

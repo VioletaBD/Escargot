@@ -40,18 +40,13 @@ body {
 
 .action-card {
     width: 420px;
-    height: 600px;
-    box-shadow: inset var(--box-shadow-card);
-    border: none;
-    border-radius: var(--border-radius-card);
+    height: 700px;
 }
 
 .card-img-top {
     width: 100%;
     height: 40%;
     object-fit: cover;
-    border: radius 5px;;
-
 }
 
 .action-card .card-title {
